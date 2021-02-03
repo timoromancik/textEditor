@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="database.DatabazaController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <center>
+        <GridPane alignment="CENTER">
+            <Label text="meno" GridPane.rowIndex="0" GridPane.columnIndex="0"></Label>
+            <TextField fx:id="meno" GridPane.rowIndex="0" GridPane.columnIndex="1"></TextField>
+
+            <Label text="priezvisko" GridPane.rowIndex="1" GridPane.columnIndex="0"></Label>
+            <TextField fx:id="priezvisko" GridPane.rowIndex="1" GridPane.columnIndex="1"></TextField>
+
+            <Label text="vek" GridPane.rowIndex="2" GridPane.columnIndex="0"></Label>
+            <TextField fx:id="vek" GridPane.rowIndex="2" GridPane.columnIndex="1"></TextField>
+
+            <TextArea fx:id="vysledok" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"></TextArea>
+
+        </GridPane>
+
+
+    </center>
+
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT">
+
+            <Button text="save" onAction="#save"></Button>
+            <Button text="load"></Button>
+        </HBox>
+    </bottom>
+
+
+</BorderPane>

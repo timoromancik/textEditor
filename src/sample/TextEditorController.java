@@ -1,12 +1,9 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 
 public class TextEditorController {
 
@@ -14,32 +11,38 @@ public class TextEditorController {
     TextArea myTextFile;
 
     @FXML
-    public void save(){
-        String text = myTextFile.getText();
-        writer1.write(text);
+    public void save() {
 
-    }
-
-    public void initialize(){
-        String strBuffer;
-        String vystup = "";
-        try{
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("dokument"));
-            while ((strBuffer= bufferedReader.readLine()) !=null){
-                //System.out.println(strBuffer);
-                // myTextFile.setText(strBuffer);
-                vystup= vystup + strBuffer + "\n";
-
-            }
-            bufferedReader.close();
-            myTextFile.setText(vystup);
+        String strWriter;
+        try {
+            BufferedWriter bufferedWriter02 = new BufferedWriter(new FileWriter("dokument", true));
+            strWriter = myTextFile.getText();
+              System.out.println(strWriter);
+            bufferedWriter02.write(strWriter);
+            bufferedWriter02.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-    void test(){
 
+    public void initialize(){
+
+        String strBuffer;
+        String vystup = "";
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("dokument"));
+            while ((strBuffer = bufferedReader.readLine()) != null)
+            {
+                // System.out.println(strBuffer);
+                // myTextFile.setText(strBuffer);
+                vystup = vystup + strBuffer + "\n";
+            }
+            myTextFile.setText(vystup);
+            bufferedReader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
